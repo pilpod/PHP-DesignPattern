@@ -2,13 +2,18 @@
 
 namespace Tests;
 
+use App\Models\StdoutLogger;
+use App\Models\StdoutLoggerFactory;
 use PHPUnit\Framework\TestCase;
 
 class FactoryMethodTest extends TestCase {
 
-    public function test_example()
+    public function test_create_StdoutLogger()
     {
-        $this->assertEquals(2, 2);
+        $stdoutLoggerFactory = new StdoutLoggerFactory();
+        $stdoutLogger = $stdoutLoggerFactory->createLogger();
+
+        $this->assertInstanceOf(StdoutLogger::class, $stdoutLogger);
     }
 
 }
